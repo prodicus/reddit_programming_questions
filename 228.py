@@ -47,3 +47,34 @@ begins IN ORDER
 chimps IN ORDER
 wronged REVERSE ORDER
 '''
+
+def main(): 
+	## open the file first
+	with open('228.txt', 'r') as f: 
+		var = f.readlines()
+		lines = [x.strip() for x in var]
+		## now all the lines are stored as a list in lines variable
+
+		for line in lines : 
+			flag = 0
+			i = 0
+			## traversing the individual characters 
+			while i < len(line):
+				if i >=len(line): 
+					break 
+				else :
+					try : 
+						if ord(line[i]) > ord(line[i+1]) : 
+							flag = 1
+					except Exception as e : 
+						pass
+				i += 1
+
+			if flag == 1 : 
+				print line + ' NOT IN ORDER'
+			else : 
+				print line + ' IN ORDER'
+
+if __name__ == '__main__' : 
+	main()
+
